@@ -25,8 +25,12 @@
         <td>{{ $new->title }}</td>
         <td><img width="100" src="{{asset('uploads/'.$new->image)}}" alt=""></td>
         <td>
-            <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-            <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+            <a href="{{ route('admin.news.edit', $new->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+            <form class="d-inline" action="{{route('admin.news.destroy', $new->id)}}" method="POST">
+                @csrf
+                @method('delete')
+                <button onclick="return confirm('Are you sure?!')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+            </form>
         </td>
     </tr>
     @endforeach

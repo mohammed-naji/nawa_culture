@@ -1,0 +1,76 @@
+.btn-primary {
+    background-color: #93070a;
+    border-color: #93070a;
+}
+
+.btn-primary:hover {
+    background-color: #b81d20;
+    border-color: #b81d20;
+}
+
+body {
+    position: relative;
+    padding-top: 70px;
+}
+
+header nav {
+    box-shadow: 0 0 10px rgb(156, 156, 156);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 25px;
+}
+
+.navbar-light .navbar-nav .nav-link.active, 
+.navbar-light .navbar-nav .show>.nav-link {
+    background: #93070a;
+    color: #fff;
+}
+
+.header-search {
+    width: 350px;
+}
+
+
+#hero {
+    background: url(../images/117A0833m.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
+}
+
+#hero .overlay {
+    background: rgba(255,255,255,.5);
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.latest-news {
+    display: flex;
+    align-items: center;
+    background: #eee;
+}
+.latest-news span {
+    background: #93070a;
+    color: #fff;
+    padding: 10px 20px;
+    width: 150px;
+}
+
+.latest-news a {
+    color: #000;
+    margin: 0 30px;
+}
+
+.event-single-img {
+    height: 400px;
+    object-fit: cover;
+    object-position: top;
+}

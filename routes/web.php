@@ -2,9 +2,16 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\EventsController;
-use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\WebsiteController;
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::prefix('admin')->name('admin.')->middleware('auth', 'check_user')->group(function() {
 
@@ -12,15 +19,19 @@ Route::prefix('admin')->name('admin.')->middleware('auth', 'check_user')->group(
 
     Route::resource('news', NewsController::class);
 
+    Route::resource('projects', ProjectController::class);
+    Route::get('all-donations', [ProjectController::class, 'donations'])->name('projects.donations');
+
     Route::resource('events', EventsController::class);
+
+    Route::get('all-events/enrollments', [EventsController::class, 'enrollments'])->name('events.enrollments');
 
 });
 
-Route::get('/', function() {
-    // return bcrypt(123);
-    return view('welcome');
-})->name('website');
+Route::get('/', [WebsiteController::class, 'index'])->name('website.home');
 
-Auth::routes();
+Route::get('news/{id}', [WebsiteController::class, 'news'])->name('website.news');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('news/{id}/comments', [WebsiteController::class, 'comments'])->name('website.comments');
+
+Route::get('events/{id}', [WebsiteController::class, 'events'])->name('website.events');
