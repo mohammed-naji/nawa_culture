@@ -30,7 +30,9 @@
 
             <h4>Leave Comment</h4>
             @auth
-            <form>
+            <form method="POST" action="{{ route('website.comments', $news->id) }}">
+                @csrf
+
                 <textarea name="comment" class="form-control mb-3" id="comment" rows="5"></textarea>
                 <div class="text-end"><button class="btn btn-primary px-5">Post</button></div>
               </form>

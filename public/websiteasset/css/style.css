@@ -24,7 +24,7 @@ header nav {
     border-radius: 25px;
 }
 
-.navbar-light .navbar-nav .nav-link.active, 
+.navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .show>.nav-link {
     background: #93070a;
     color: #fff;
@@ -73,4 +73,9 @@ header nav {
     height: 400px;
     object-fit: cover;
     object-position: top;
+}
+
+.news-card img {
+    height: 180px;
+    object-fit: cover;
 }

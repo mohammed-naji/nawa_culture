@@ -35,3 +35,11 @@ Route::get('news/{id}', [WebsiteController::class, 'news'])->name('website.news'
 Route::post('news/{id}/comments', [WebsiteController::class, 'comments'])->name('website.comments');
 
 Route::get('events/{id}', [WebsiteController::class, 'events'])->name('website.events');
+
+Route::post('events/{id}/enrolled', [WebsiteController::class, 'enrolled'])->name('website.enrolled');
+
+Route::post('contact', [WebsiteController::class, 'contact'])->name('website.contact');
+
+Route::get('projects/{id}', [WebsiteController::class, 'projects'])->name('website.projects');
+
+Route::post('projects/{id}/donation', [WebsiteController::class, 'donation'])->name('website.donation');
