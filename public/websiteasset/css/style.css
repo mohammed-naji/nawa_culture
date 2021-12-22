@@ -79,3 +79,8 @@ header nav {
     height: 180px;
     object-fit: cover;
 }
+
+
+main {
+    min-height: 600px;
+}

@@ -43,3 +43,5 @@ Route::post('contact', [WebsiteController::class, 'contact'])->name('website.con
 Route::get('projects/{id}', [WebsiteController::class, 'projects'])->name('website.projects');
 
 Route::post('projects/{id}/donation', [WebsiteController::class, 'donation'])->name('website.donation');
+
+Route::get('projects/{id}/donation', [WebsiteController::class, 'donation_result'])->name('website.donation_result');

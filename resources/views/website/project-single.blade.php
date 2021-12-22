@@ -3,6 +3,13 @@
 @section('content')
 
 <main>
+
+    @if (session('msg'))
+        <div class="alert alert-{{ session('type') }}">
+            {{session('msg')}}
+        </div>
+    @endif
+
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-8 text-center">
@@ -13,6 +20,7 @@
 
                 @php
                     $p = ($project->donations->sum('amount') / $project->target) * 100;
+                    $p = round($p, 2);
                 @endphp
 
                 <div class="progress">
@@ -34,7 +42,7 @@
 
                 @if ($p <= 100)
                 <h2>Donate</h2>
-                <form action="{{ route('website.enrolled', $project->id) }}" method="POST">
+                <form action="{{ route('website.donation', $project->id) }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label>Amount</label>
