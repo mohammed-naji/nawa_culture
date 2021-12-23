@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\EnrolledExport;
+use App\Models\Event;
+use App\Models\Enrolled;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Enrolled;
-use App\Models\Event;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EventsController extends Controller
 {
@@ -170,5 +172,10 @@ class EventsController extends Controller
 
         $events = Event::all();
         return view('admin.events.enrollments', compact('enrollments', 'events'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new EnrolledExport, 'enrollments.xlsx');
     }
 }

@@ -6,6 +6,8 @@
     <h1>All Events Registrations</h1>
 </div>
 
+<a class="btn btn-success" href="{{ route('admin.enrolled.export') }}">Export</a>
+
 <form class="mb-4" method="get" action="{{ route('admin.events.enrollments') }}">
     <div class="form-row align-items-center">
         <div class="col-5 my-1">

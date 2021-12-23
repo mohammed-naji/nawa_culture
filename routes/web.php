@@ -26,6 +26,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth', 'check_user')->group(
 
     Route::get('all-events/enrollments', [EventsController::class, 'enrollments'])->name('events.enrollments');
 
+    Route::get('enrolled/export/', [EventsController::class, 'export'])->name('enrolled.export');
+
 });
 
 Route::get('/', [WebsiteController::class, 'index'])->name('website.home');
@@ -45,3 +47,5 @@ Route::get('projects/{id}', [WebsiteController::class, 'projects'])->name('websi
 Route::post('projects/{id}/donation', [WebsiteController::class, 'donation'])->name('website.donation');
 
 Route::get('projects/{id}/donation', [WebsiteController::class, 'donation_result'])->name('website.donation_result');
+
+
